@@ -1,4 +1,5 @@
 
+
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {OnInit} from 'angular2/core';
 import {KeysPipe} from '../../pipes/keyValue';
@@ -16,13 +17,11 @@ export class HelloIonicPage {
   myFirebaseRef;
   getData;
 
+
   constructor(public getFBData: GetFirebaseData, public nav: NavController, public params: NavParams) {
     this.getDatatoService();
   }
-
-
-
-  getDatatoService() {
+getDatatoService() {
     this.getFBData.GetData().then(data => {
       this.getData = data;
     })

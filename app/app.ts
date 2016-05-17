@@ -6,7 +6,7 @@ import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {GetFirebaseData} from './services/GetFireBaseData';
 
 import {ListPage} from './pages/list/list';
-import {FIREBASE_PROVIDERS, defaultFirebase, AngularFire} from 'angularfire2';
+// import {FIREBASE_PROVIDERS, defaultFirebase, AngularFire} from 'angularfire2';
 
 
 @App({
