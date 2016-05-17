@@ -1,4 +1,3 @@
-
 <ion-navbar *navbar>
   <button menuToggle>
     <ion-icon name="menu"></ion-icon>
@@ -6,40 +5,19 @@
   <ion-title>Hello Ionic</ion-title>
 </ion-navbar>
 
-
-<ion-content padding class="getting-started">
+<ion-content padding class="getting-started" style="background-color: #fbfafa">
   <h3>Welcome to your first Ionic app!</h3>
-
-<ion-card   *ngFor="#showList of showListcards" *ngIf="showListcards" (click)="NextPagePlay(showList.event.id)" >
-  
-  <div *ngIf="showList">
-    
-    <!--<iframe style="float:left"  width="150" height="150" 
-src="http://www.youtube.com/{{showList.event.id}}">
- </iframe>
-    -->
-    
-    
-    <div *ngIf="{{showList.event.imgUrl}}">
-      
-      {{showList.event.imgUrl}}
-      
-      
-    </div>
-    
-    <b>Title</b> <br>
-  <span style="font-size:150%" (click)="goToAbout(showList)">{{showList.title}}</span>
-<br><br><br>
- 
-  <b>Description:</b> <br>
- <a>{{showList.description}}</a>
-    <!--{{showList.event.id)}}-->
-    <!--<img src={{showList.event.imgUrl}}/>-->
-    <!--{{showList.event.imgUrl}}-->
-    {{showList.webcastId}}
-    </div>
+  <ion-card *ngFor="#key of getData | keys" (click)="NextPagePlay(key.value.event.id)">
+     <img src="http://images5.fanpop.com/image/answers/2645000/2645099_1335395799291.17res_430_350.jpg" alt="" style="width:150px ; float:left">
+   
+    <b>Title</b> <br/>
+<a>{{key.value.title}} </a>
+   
+    <!--<div style="width: 220px;">
+      {{key.key}}
+      <br> {{key.value.event.id}}
+      <!--<img src="./img/21.png" />-->
+    <!--</div>-->
   </ion-card>
-
-<!--<button  (click)="showList(show)">Show LiveStream </button>-->
 
 </ion-content>

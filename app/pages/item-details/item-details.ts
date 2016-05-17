@@ -1,11 +1,13 @@
 import {Page,NavParams,NavController} from 'ionic-angular';
 import {HelloIonicPage} from '../hello-ionic/hello-ionic';
+import {OnInit} from 'angular2/core';
+
 
 
 @Page({
   templateUrl: 'build/pages/item-details/item-details.html'
 })
-export class ItemDetailsPage {
+export class ItemDetailsPage implements OnInit {
   
   liveUrl: string = "";
   player;
@@ -15,90 +17,29 @@ export class ItemDetailsPage {
 
   constructor(public nav:NavController,public params: NavParams) {
     this.GetPrevId = this.params.get('PushVideoId');
-    
-    
-    console.log(this.GetPrevId)
-    this.load();
-    
-    
+    // this.load()  
   }
    
-  
-  load() {
-    // alert(typeof (YT))
-    if (true) {
-
-      var tag = document.createElement('script');
-      
-    
-      
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      // tag.onload= this.onYouTubePlayerAPIReady;
-      // this.onYouTubePlayerAPIReady();
-      // tag.onload= this.onYouTubePlayerAPIReady;
-      setTimeout(()=>{
-        this.onYouTubePlayerAPIReady()
-      }, 1000)
-
-      // (<any>window).onYouTubePlayerAPIReady = () => {
-      //   this.onYouTubePlayerAPIReady();
-      // }
-    }
-
-    //  else {
-    //    this.onYouTubePlayerAPIReady(url);
-    //  }
-
-  }
-
-
-  onYouTubePlayerAPIReady() {
-    alert('Welcome to livStream')
-    this.player = new YT.Player('ytplayer', {
-      height: '490',
-      width: '390',
-      
-      
-      // events: {
-      //       // autoplay:1
-      //       'onReady': this.onPlayerReady
-      //     },
-      videoId:  this.GetPrevId
-    });
-    
-   
-
-  }
-   
-  
-  
-  // onPlayerReady(event) {
-  //       event.target.playerapiid = this.GetPrevId;
+  // load() {
+  //   if (true) {
         
-  //     }
-  
-      BackButton(){
-        // this.Nullid = this.onYouTubePlayerAPIReady;
-        // this.Nullid=null;
-this.nav.pop(HelloIonicPage)
-      }
-  // liveStream() {
-    // this.liveUrl = url.value.substring(url.value.indexOf('=')+1);
-    
-    
-    
-    // console.log(this.liveUrl);
-
+  //     setTimeout(()=>{
+  //     }, 1000)
+  //   }
   // }
 
 
-
+  onYouTubePlayerAPIReady() {
+    this.player = new YT.Player('ytplayer', {
+      height: '570',
+      width: '390',
+      videoId:  this.GetPrevId
+    })
+  }
+  ngOnInit(){
+        this.onYouTubePlayerAPIReady()
+  
+}
+    
 }
 
-//   window.onload = () => {
-//     console.log("ONLOAD");
-//     var game = new this.ItemDetailsPage();
-//     game.mavia()
-// };
